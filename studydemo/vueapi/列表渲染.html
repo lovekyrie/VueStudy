@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>列表渲染</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+    <div id="example-1">
+        <li v-for="item in items">
+            {{item.message}}
+        </li>
+    </div>
+
+    <!-- 你也可以用of替代in作为分隔符，因为它是最接近JavaScript迭代器的语法： -->
+    <div v-for="item of items"></div>
+
+    <!-- 一个对象的v-for -->
+    <ul id="v-for-object" class="demo">
+        <li v-for="value in object">
+            {{value}}
+        </li>
+    </ul>
+
+    <div id="example-2">
+        <li v-for="(item,index) in items">
+            {{parentMessage}}-{{index}}-{{item.message}}
+        </li>
+    </div>
+    <!-- v-for还支持一个可选的第二个参数为当前项的索引 -->
+
+    <!-- 建议尽可能在使用v-for时提供key,除非遍历输出的DOM内容非常简单，或者是刻意
+    依赖默认行为以获得性能上的提升 -->
+
+    <script>
+        var vm = new Vue({
+            el: '#example-1',
+            data: {
+                items: [{
+                        message: 'Foo'
+                    },
+                    {
+                        message: 'Bar'
+                    },
+                    {
+                        message: 'Vue'
+                    }
+                ]
+            },
+            mounted() {
+                this.items = this.items.filter(function (item) {
+                  
+                    return item.message.match(/Foo/)
+                })
+            },
+        })
+
+        var vm2 = new Vue({
+            el: '#example-2',
+            data: {
+                parentMessage: 'Parent',
+                items: [{
+                        message: 'Foo'
+                    },
+                    {
+                        message: 'Bar'
+                    },
+                    {
+                        message: 'Vue'
+                    }
+                ]
+            }
+        })
+
+        var vm3 = new Vue({
+            el: '#v-for-object',
+            data: {
+                object: {
+                    firstName: 'John',
+                    lastName: 'Doe',
+                    age: 30
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

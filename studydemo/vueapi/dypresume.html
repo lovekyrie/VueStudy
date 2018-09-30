@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>段宇鹏求职简历</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            border: 0;
+        }
+
+        body {
+            -webkit-font-smoothing: antialiased;
+            background-color: #fff;
+            font: 14px/1.5 tahoma, Microsoft YaHei, Heiti SC, arial, Hiragino Sans GB, \\5B8B\4F53, sans-serif;
+            color: #000
+        }
+
+        /* 清除浮动 */
+
+        .clearfix::before,
+        .clearfix::after {
+            display: table;
+            content: '';
+        }
+
+        .clearfix::after {
+            clear: both;
+        }
+
+        .clearfix {
+            *zoom: 1;
+        }
+
+        .resume {
+            margin: 0 auto;
+            width: 800px;
+            overflow: hidden;
+            box-shadow: 0 1px 10px rgba(0,0,0,0.5);
+        }
+
+        .resume_inner {
+            margin: 70px auto;
+            width: 642px;
+            height: 100%;
+            background-color: #fff;
+        }
+
+        .person_info dt {
+            font-size: 28px;
+            color: #1079b8;
+            font-weight: 700;
+            background-color: transparent;
+            font-size: normal;
+            line-height: 38px;
+            border-bottom: 1px solid #000;
+        }
+
+        .person_info dd {
+            margin-right: 105px;
+            float: left;
+            font-weight: 700;
+        }
+
+        .person_info dd:last-child,
+        .role {
+            margin-right: 5px;
+            float: right;
+        }
+
+        .skills,
+        .experience,
+        .project1,
+        .project2,
+        .project3,
+        .work,
+        .education,
+        .hobby,
+        .evaluation,
+        .hobby p:nth-of-type(1),
+        .evaluation p:nth-of-type(1) {
+            margin-top: 20px;
+        }
+
+        .skills dt div,
+        .experience .introduce,
+        .work .introduce,
+        .education .introduce,
+        .hobby .introduce,
+        .evaluation .introduce {
+            box-sizing: border-box;
+            padding-left: 4px;
+            background-color: #000000;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 700;
+            width: 110px;
+            line-height: 24px;
+        }
+
+        .skills dt,
+        .experience .experience_inner,
+        .work .work_inner,
+        .education .education_inner,
+        .hobby .hobby_inner,
+        .evaluation .evaluation_inner {
+            border-bottom: 1px solid #000;
+        }
+
+        .skills dd::before,
+        .project1 p:not(:first-child)::before,
+        .project2 p:not(:first-child)::before,
+        .project3 p:not(:first-child)::before,
+        .hobby p::before,
+        .evaluation p::before
+         {
+            content: "•";
+            margin-right: 5px;
+            font-size: 14px;
+            color: #1079b8;
+            background-color: transparent;
+            font-weight: 700;
+            line-height: 1.5;
+        }
+
+        .skills dd {
+            line-height: 22px;
+            margin-left: 120px;
+        }
+
+        .skills dd:nth-of-type(1){
+            margin-top: 5px;
+        }
+
+        .duration {
+            margin-left: 10px;
+            font-size: 12px;
+        }
+
+        .name,
+        .role {
+            color: #1079b8;
+            font-weight: 700;
+            background-color: transparent;
+            line-height: 1.15;
+        }
+
+        .name {
+            margin-left: 13px;
+        }
+
+        .role {
+            color: #000;
+        }
+
+        .project1 p:not(:first-child),
+        .project2 p:not(:first-child),
+        .project3 p:not(:first-child),
+        .hobby p,
+        .evaluation p {
+            margin-left: 120px;
+            box-sizing: border-box;
+            padding-right: 10px;
+            line-height: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 简历开始 -->
+    <div class="resume">
+        <!-- 简历正文 -->
+        <div class="resume_inner">
+            <!-- 简历首部 -->
+            <div class="header">
+                <!-- 个人信息 -->
+                <dl class="person_info clearfix">
+                    <dt>段宇鹏</dt>
+                    <dd>(+86)187-5832-2412</dd>
+                    <dd>fengdurant@163.com</dd>
+                    <dd>微信：pg_kyrie</dd>
+                </dl>
+
+                <!-- 专业技能 -->
+                <dl class="skills">
+                    <dt>
+                        <div>专业技能</div>
+                    </dt>
+                    <dd>计算机语言：HTML、CSS、JS、C#、.NET、Java、C</dd>
+                    <dd>网页编辑器：Adobe Dreamweaver、Notepad++、ST3、VSCode,VS各个版本</dd>
+                    <dd>数据库软件：SQL Sever、Mysql、Oracle</dd>
+                    <dd>操作系统：Windows、Linux、Unix、iOS</dd>
+                    <dd>编程软件：visual studio各个版本、ST3、VSCode</dd>
+                </dl>
+
+                <!-- 工作项目经历 -->
+                <div class="experience">
+                    <div class="experience_inner">
+                        <div class="introduce">前端开发经历</div>
+                    </div>
+                    <div class="project1">
+                        <p class="projectname">
+                            <span class="duration">2013.06-2013.09</span>
+                            <span class="name">启航之星有限公司</span>
+                            <span class="role">PHP开发工程师</span>
+                        </p>
+                        <p>
+                            主要是使用HTML标记、div+css+javascript Dom操作等前端WEB技术进行网站的开发与制造
+                        </p>
+                        <p>
+                            使用mvc思想、oop面向对象思想、ThinkPHP模板框架、基于jQuery的EasyUI框架、Smarty模板引擎等技术来做项目开发
+                        </p>
+                    </div>
+                    <div class="project2">
+                        <p class="projectname">
+                            <span class="duration">2011.09-2012.03</span>
+                            <span class="name">栋力无限</span>
+                            <span class="role">项目负责人</span>
+                        </p>
+                        <p>
+                            负责开发小组的工作调度、人员职能安排与分配、网站的功能策划与需求分析
+                        </p>
+                        <p>
+                            设计制作功能架构图、以及网站数十个页面的设计、前端与后端以及与系统管理员的交接、进度的跟进和时间安排、服务器监控等任务，网站目前运行状况良好
+                        </p>
+                        <p>
+                            网址：http://www.dormforce.net/
+                        </p>
+                    </div>
+                    <div class="project3">
+                        <p class="projectname">
+                            <span class="duration">2011.06-2011.08</span>
+                            <span class="name">CRM管理系统</span>
+                            <span class="role">数据库和网页设计</span>
+                        </p>
+                        <p>
+                            负责编写详细需求分析和客户管理模块
+                        </p>
+                        <p>
+                            实现了客户添加、客户修改、客户删除、批量删除客户、分页等几大功能
+                        </p>
+                        <p>
+                            分别用到Myeclipse开发工具、orcal数据库、ssh、javascript、jquery等开发技术，现几大功能运行稳定，运算速度明显变快
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 工作经历 -->
+                <div class="work">
+                    <div class="work_inner">
+                        <div class="introduce">工作经历</div>
+                    </div>
+                    <div class="project1">
+                        <p class="projectname">
+                            <span class="duration">2014.06-2018.06</span>
+                            <span class="name">宁波亚晟信息科技有限公司</span>
+                            <span class="role">软件开发工程师</span>
+                        </p>
+                        <p>
+                            主要是使用HTML标记、div+css+javascript Dom操作等前端WEB技术进行网站的开发与制造
+                        </p>
+                        <p>
+                            使用mvc思想、oop面向对象思想、ThinkPHP模板框架、基于jQuery的EasyUI框架、Smarty模板引擎等技术来做项目开发
+                        </p>
+                    </div>
+                </div>
+                <!-- 教育背景 -->
+                <div class="education">
+                    <div class="education_inner">
+                        <div class="introduce">教育背景</div>
+                    </div>
+                    <div class="project1">
+                        <p class="projectname">
+                            <span class="duration">2010.09-2017.06</span>
+                            <span class="name">宁波大学科学技术学院</span>
+                            <span class="role">软件工程</span>
+                        </p>
+                        <p>
+                            主要是使用HTML标记、div+css+javascript Dom操作等前端WEB技术进行网站的开发与制造
+                        </p>
+                        <p>
+                            使用mvc思想、oop面向对象思想、ThinkPHP模板框架、基于jQuery的EasyUI框架、Smarty模板引擎等技术来做项目开发
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 特长爱好 -->
+                <div class="hobby">
+                    <div class="hobby_inner">
+                        <div class="introduce">特长爱好</div>
+                    </div>
+                    <p>
+                        主要是使用HTML标记、div+css+javascript Dom操作等前端WEB技术进行网站的开发与制造
+                    </p>
+                    <p>
+                        主要是使用HTML标记、div+css+javascript Dom操作等前端WEB技术进行网站的开发与制造
+                    </p>
+                </div>
+
+                <!-- 自我评价 -->
+                <div class="evaluation">
+                    <div class="evaluation_inner">
+                        <div class="introduce">自我评价</div>
+                    </div>
+                    <p>
+                        性格比较适合做技术，不怕挑战，一定会迎难而上。
+                    </p>
+                    <p>
+                        自己会利用空闲时间学习新技术，利用学习到新技能把之前的代码进行重构，优化
+                    </p>
+                    <p>
+                        今后还是会继续朝着提高、沉淀自己的技术功底的道路上前进
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

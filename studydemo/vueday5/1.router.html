@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>router</title>
+    <style>
+        .active{
+            background-color: #f00;
+        }
+
+        .container{
+          padding: 10px;
+          margin: 10px;
+        }
+
+        a{
+          text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- 前后端分离 后端只需要提供接口 像页面跳转这种功能 都前端自己实现
+    有两种方式 hash 跟historypush,前面适合在开发环境下使用，后者适合在正式环境上使用 -->
+    <div id="app">
+        <!-- router-view是一个全局组件，可以直接使用 -->
+        <div class="container">
+          <router-link to="/home">首页</router-link>
+          <router-link to="/list">列表页</router-link>
+          <router-view></router-view>
+        </div>
+        
+    </div>
+    <script src="../../node_modules/vue/dist/vue.js"></script>
+    <script src="../../node_modules/vue-router/dist/vue-router.js"></script>
+    <script>
+        let home={template:'<div>首页</div>'};
+        let list={template:'<div>列表页</div>'};
+        let routes=[ //路由的映射表 配置路径和组件的关系 
+            {path:'/home',component:home}, //配置的关系就是页面级组件
+            {path:'/list',component:list} //路径必须加
+        ];
+
+        const router = new VueRouter({
+            //  mode :'history', //h5模式，用于生产环境
+            routes,
+            linkActiveClass:'active' //更改默认样式的类名 
+        });
+
+        let vm=new Vue({
+            el:'#app',
+            router
+        })
+    </script>
+</body>
+</html>

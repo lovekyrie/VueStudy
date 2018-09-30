@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>页面中存在多个导航写法</title>
+</head>
+
+<body>
+    <div id="app">
+        <router-link to="/home">首页</router-link>
+        <router-link to="/detail">详情页</router-link>
+        <router-view></router-view>
+    </div>
+    <template id="detail">
+        <div>
+            <router-link to="/detail/profile">个人中心</router-link>
+            <router-link to="/detail/about">关于我</router-link>
+            <router-view></router-view>
+        </div>
+    </template>
+    <script src="../../node_modules/vue/dist/vue.js"></script>
+    <script src="../../node_modules/vue-router/dist/vue-router.js"></script>
+    <script>
+        //首页，详情页，个人中心，关于我们
+        let home = {
+            template: '<div>home</div>'
+        };
+        let detail = {
+            template: '#detail'
+        };
+        let profile = {
+            template: '<div>profile</div>'
+        };
+        let about = {
+            template: '<div>about</div>'
+        };
+
+        let routes = [{
+                path: '/home',
+                component: home,
+            },
+            {
+                path: '/detail',
+                component: detail,
+                children: [
+                    //二级路由不能写/，或者就是按照一级路由解析
+                    {
+                        path: 'profile',
+                        component: profile,
+                    },
+                    {
+                        path: 'about',
+                        component: about
+                    }
+                ]
+            },
+
+        ]
+
+        const router = new VueRouter({
+            routes
+        });
+
+        let vm = new Vue({
+            el: '#app',
+            router
+        })
+    </script>
+</body>
+
+</html>

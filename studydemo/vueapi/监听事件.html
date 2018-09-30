@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>监听事件</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+    <div id="example-1">
+        <button v-on:click.once="counter +=1">Add 1</button>
+        <p>The button above has been clicked {{counter}} times.</p>
+    </div>
+
+    <!-- 事件处理方法 -->
+    <div id="example-2">
+        <!-- `greet`是在下面定义的方法 -->
+        <button @click="greet">Greet</button>
+    </div>
+
+    <!-- 内联处理器中的方法 -->
+    <div id="example-3">
+        <button @click="say('hi')">Say hi</button>
+        <button @click="say('what')">Say what</button>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#example-1',
+            data: {
+                counter: 0
+            }
+        })
+
+        var example = new Vue({
+            el: '#example-2',
+            data: {
+                name: 'Vue.js',
+            },
+            //在`method`中定义方法
+            methods: {
+                greet: function (event) {
+                    //`this`在方法里面指向当前Vue实例 即为example
+                    alert('Hello' + this.name + '!');
+                    //`event`是原生DOM事件
+                    if (event) {
+                        alert(event.target.tagName);
+                    }
+                }
+            }
+        })
+
+        var example3 = new Vue({
+            el: '#example-3',
+            methods: {
+                say: function (message) {
+                    alert(message);
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

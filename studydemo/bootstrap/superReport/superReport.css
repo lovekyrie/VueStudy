@@ -1,0 +1,382 @@
+.container{
+  width: 100%;
+  height: 100%;
+  background-color:#404A59;
+}
+
+.row .content{
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.content >div{
+  height: 100%;
+}
+
+.left-side,
+.right-side{
+  width: 18%;
+  color: #fff;
+}
+
+.content .mid-side{
+  width: 62%;
+  height: 100vh;
+}
+
+.left-side >div,
+.right-side>div{
+  font-size: 12px;
+  margin: 10% 0 10% 5%;
+}
+
+.left-side >div>div:nth-of-type(1),
+.right-side>div>div:nth-of-type(1){
+  font-size: 14px;
+}
+
+.left-side >div>div:nth-of-type(2),
+.right-side >div >div:nth-of-type(2),
+.center-project>div,
+.hide-statis>.year-detail{
+  padding: 5%;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  background-color:#3A4350;
+}
+
+.right-side >div >div:nth-of-type(2){
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.left-side >div>div:nth-of-type(2)>div,
+.right-side >div>div:nth-of-type(2)>div{
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  padding: 2.5% 0;
+  width: 100%;
+}
+
+
+.left-side >div>div:nth-of-type(2)>div{
+  padding: 3% 0;
+}
+
+.recent-year>div:nth-of-type(2)>div>span:nth-of-type(1){
+  display: inline-block;
+  width: 60%;
+}
+
+.recent-year>div:nth-of-type(2)>div>span:nth-last-of-type(1){
+  display: inline-block;
+  width: 5%;
+}
+
+
+.recent-year>div:nth-of-type(2)>div>i{
+  /* padding-right: 5%; */
+  color: #E9A256;
+  font-style: normal;
+}
+
+.center-statis >div:nth-of-type(1){
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.satisfaction >.second-part select{
+  background-color:rgba(0, 0, 0, .0);
+  border: 0;
+  text-align: center;
+  text-align-last: center;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+
+.center-statis>div>div,
+.satisfaction>.second-part >div>div{
+  position: relative;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.center-statis>div>.year-choose,
+.satisfaction>div:nth-of-type(2)>div>.year-choose{
+  width: 30%;
+}
+
+.center-statis>div>.month-choose,
+.satisfaction>div:nth-of-type(2)>div>.month-choose{
+  width: 20%;
+}
+
+.year-choose >.year-value,
+.month-choose >.month-value{
+  width: 80%;
+}
+
+.year-choose >.triangle,
+.month-choose >.triangle{
+  width: 0;
+  height: 0;
+  border: 6px solid rgba(0,0,0,.0);
+  border-top-color: #fff;
+}
+
+.year-choose >.year-sel,
+.month-choose >.month-sel{
+  z-index: 13;
+  background-color: #fff;
+  color: #000;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.year-choose >.year-sel>div,
+.month-choose >.month-sel>div{
+  cursor: pointer;
+  flex: 1;
+}
+
+.satisfaction >.second-part select{
+  outline: none;
+}
+
+.center-statis >div>select>option,
+.satisfaction >.second-part select>option{
+  background-color: rgba(0, 0, 0, .6);
+}
+
+.satisfaction >.second-part>div:nth-of-type(2n){
+  justify-content: space-around;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.student-statis >div:nth-of-type(2){
+  flex-wrap: nowrap;
+}
+
+.student-statis >div:nth-of-type(2)>div{
+  flex: 4;
+}
+
+.student-statis .second-part >div>i{
+  font-style: normal;
+  font-weight: 700;
+}
+
+.center-project>div{
+  justify-content: space-between;
+  flex: nowrap;
+}
+
+.center-project >div>div:nth-of-type(1){
+  width: 10%;
+}
+
+.center-project >div>div:nth-of-type(2){
+  width: 60%;
+}
+
+.center-project >div>div:nth-of-type(3){
+  width: 10%;
+}
+
+.center-project >div>i{
+  font-style: normal;
+  font-weight: 700;
+  width: 10%;
+}
+
+.center-project .first >div:nth-of-type(1),
+.center-project .second >div:nth-of-type(1),
+.center-project .third >div:nth-of-type(1){
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.center-project>div{
+  background-color: rgba(0, 0, 0, .0);
+}
+
+.center-project >div>div:nth-of-type(3){
+  text-align: right;
+}
+
+.center-project .first >div:nth-of-type(1){
+  background-color: #fff;
+}
+
+.center-project .second >div:nth-of-type(1){
+  background-color: #18D0D4;
+}
+
+.center-project .third >div:nth-of-type(1){
+  background-color: #2B7FD9;
+}
+
+.history-data >div >span{
+  display: inline-block;
+}
+
+.history-data>div >span:nth-of-type(1){
+  width: 60%;
+}
+
+.history-data>div >i{
+  font-style: normal;
+  font-weight: 700;
+  padding-right: 3%;
+  text-align: right;
+  width: 28%;
+}
+
+.history-data>div >span:nth-of-type(2){
+  width: 8%;
+}
+
+.right-side> .most-popular> .second-part >div{
+  justify-content:end;
+}
+
+.most-popular >.second-part >div >i{
+  font-style: normal;
+  color: #E9A256;
+}
+
+.project-count >.second-part >div{
+  font-size: 11px;
+}
+
+.project-count >.second-part >div >span:nth-of-type(1){
+  width: 6%;
+}
+
+.project-count >.second-part >div >span:nth-of-type(2){
+  width: 70%;
+}
+
+.project-count >.second-part >div >span:nth-of-type(3){
+  width: 6%;
+}
+
+.project-count >.second-part >div >i{
+  width: 6%;
+  text-align: right;
+  font-style: normal;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+#linechart{
+  padding: 0;
+  height: 200px;
+}
+
+.mid-side >.title{
+  margin: 3% auto;
+  font-size: 18px;
+  text-align: center;
+  color: #fff;
+  width: 30%;
+}
+
+.mid-side >.map-report{
+  margin: 0 auto;
+  height: 500px;
+  width: 100%;
+  background-color: #fff;
+}
+
+.mid-side >.sector-report{
+  margin: 1% auto;
+  width: 50%;
+}
+
+.mid-side >.sector-report>div{
+  font-size: 12px;
+  color: #fff;
+}
+
+.mid-side >.sector-report>div:nth-of-type(1){
+  margin-left: 3%;
+  font-size: 14px;
+}
+
+#sectorechart{
+  background-color: #3A4350;
+  height: 240px;
+}
+
+.recent-year >div:nth-of-type(2) >div{
+  position: relative;
+}
+
+.hide-statis{
+  z-index: 12;
+  width: 100%;
+  position: absolute;
+  top: 80%;
+  right: 0;
+}
+
+.hide-statis >.trigger{
+  margin-left: 80%;
+  width: 0;
+  height: 0;
+  border: 6px solid #3A4350;
+  border-bottom-color: #606369;
+}
+
+.hide-statis>.year-detail{
+  border: 1px solid #606369;
+  width: 100%;
+}
+
+.hide-statis>.year-detail>div{
+  padding:2% 0;
+  width: 100%;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.hide-statis>.year-detail>div>span:nth-of-type(1){
+  width:50%;
+}
+
+.hide-statis>.year-detail>div>span:nth-of-type(2){
+  width: 10%;
+}
+
+.hide-statis>.year-detail>div>i{
+  font-style: normal;
+  font-weight: 700;
+  width: 30%;
+  text-align: right;
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input type="text" id="input" />
+    <script>
+        let obj = {};
+        let temp = {};
+        Object.defineProperty(obj, 'name', {
+            get() {
+                return temp["name"];
+            },
+            set(val) {
+                // 这里为什么不能用原对象obj，因为如果是obj的话，会一直执行这个set()方法
+                temp["name"] = val; //改变temp的结果
+                input.value=val; //将值赋予输入框
+            }
+        });
+
+        input.value = obj.name; //当第一次加载的时候，读取输入框的值
+        //修改输入框的值
+        //dom2级时间，默认不带第三个参数默认为false(冒泡出发)
+        input.addEventListener('input', function () {
+            obj.name = input.value;
+        })
+
+        //    Object.defineProperty(obj,'name',{
+        //        configurable:false, //是否可删除
+        //        writable:false, //是否可修改
+        //        enumerable:false, //是否可枚举 for in
+        //        value:1
+        //    });
+    </script>
+</body>
+
+</html>

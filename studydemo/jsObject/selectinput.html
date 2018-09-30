@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>    
+        <title></title>    
+    </head>
+    <body>
+        <div style="position:relative;"> 
+            <span style="margin-left:105px;overflow:hidden;"> 
+            <select style="width:118px;margin-left:-100px;height:21px;" onchange="this.parentNode.nextSibling.value=this.options[this.selectedIndex].text;"> 
+                <option value="-1">请选择...</option> 
+                <option value="1">选项一</option> 
+                <option value="2">选项二</option> 
+                <option value="3">选项三</option> 
+            </select>
+            </span>
+            <input type="text" style="width:100px;position:absolute;left:0px;" value="请选择..."> 
+        </div>
+    </body>
+</html>

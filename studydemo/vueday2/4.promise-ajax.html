@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>axios利用生成购物车</title>
+</head>
+<body>
+    <div id="app">
+  
+    </div>
+    <script src="../../node_modules/vue/dist/vue.js"></script>
+    <script src="4.promise-ajax.js"></script>
+    <script>
+        let vm=new Vue({
+            el:'#app',
+            //专门用来发送ajax的方法
+            created(){ //在数据初始化后悔调用，this指向的也是vm实例，钩子函数
+                ajax({url:'./products.json'}).then(
+                    //当在回调函数里面的时候，this指的是window
+                    //所以这里可以采用es6的箭头函数写法
+                    res=>{
+                        console.log(res);
+                        this.products=res;
+                    },
+                    err=>{
+                        console.log(err);
+                    }
+                )
+            },
+            data:{
+                products:[] 
+            }
+        })
+    </script>
+</body>
+</html>

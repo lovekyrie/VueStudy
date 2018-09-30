@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>绑定内联样式</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="style1" v-bind:style="{color:activeColor,fontSize:fontSize+'px'}">
+
+    </div>
+
+    <div id="style2" v-bind:style="styleObject"></div>
+
+    <!--数组语法  -->
+    <!-- v-bind:style 的数组语法可以将多个样式对象应用到同一个元素上 -->
+    <div v-bind:style="[baseStyles,overidingStyles]"></div>
+
+    <!-- 自动添加前缀 -->
+    <!-- 当v-bind:style 使用需要添加浏览器引擎前缀的CSS属性时，如transform, 
+        vue.js会自动侦测并添加相应的前缀-->
+    
+    <script>
+        var vm = new Vue({
+            el: '#style1',
+            data: {
+                activeColor: 'red',
+                fontSize: 30
+            }
+        });
+
+        var vm1 = new Vue({
+            el: '#style2',
+            data: {
+                styleObject: {
+                    color: 'red',
+                    fontSize: '13px'
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

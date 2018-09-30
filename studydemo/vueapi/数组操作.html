@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数组操作</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+
+    <div id="test-array">
+        <li v-for="item in items">
+            {{item}}
+        </li>
+    </div>
+    <script>
+        var months = ['Jan', 'March', 'April', 'June'];
+
+        months.splice(1, 0, 'Feb');
+
+        console.log(months);
+
+        months.splice(4, 1, 'May');
+
+        console.log(months);
+
+       
+    </script>
+
+    <script>
+         var vm=new Vue({
+            el:'#test-array',
+            data:{
+                items:
+                    ['a','b','c']
+            },
+            mounted() {
+                this.items.splice(1,1,'e');
+            },
+        })
+    </script>
+</body>
+
+</html>

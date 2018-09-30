@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div>
+            学校
+        </div>
+        <script>
+            //我们的数据对象
+            var data={a:1}
+
+            //该对象被加入到一个vue实例中
+            var  vm=new Vue({
+                data:data
+            })
+
+            //获得这个实例上的属性
+            //返回源数据中对应的字段
+            vm.a==data.a;
+
+            //设置属性也会影响到原始数据
+            vm.a=2;
+            console.log(data.a);
+
+            //...反之亦然
+            data.a=3;
+            console.log(vm.a);
+        </script>
+    </body>
+</html>

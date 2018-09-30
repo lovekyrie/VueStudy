@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>对象更改检测</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+    <div id="objchange">
+        <li v-for="value in userProfile"> 
+            {{value}}
+        </li>
+    </div>
+
+    <script>
+        var vm=new Vue({
+            el:'#objchange',
+            data:{
+                userProfile:{
+                    name:'Anika'
+                }
+            },
+            mounted() {
+                // Vue.set(this.userProfile,'age',27);
+                //你可以使用vm.$set实例方法，它只是全局Vue.set的别名：
+                // this.$set(this.userProfile,'age',28);
+
+                this.userProfile=Object.assign({},this.userProfile,{
+                    age:27,
+                    favoriteColor:'Vue Green'
+                });
+            },
+        })
+    </script>
+</body>
+</html>

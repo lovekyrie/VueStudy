@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>兄弟组件事件传递</title>
+</head>
+<body>
+    <div id="app">
+        <brother-one></brother-one>
+        <brother-two></brother-two>
+    </div>
+    <script src="../../../node_modules/vue/dist/vue.js"></script>
+    <script>
+        let EventBus=new Vue;
+        let brotherOne={
+            template:'<div>{{color}}<button @click="change">变绿</button></div>',
+            data(){
+                return {color:'绿色',old:'绿色'}
+            },
+            created() { //页面一加载兄弟1长个耳朵听
+                EventBus.$on('changeRed',(val)=>{
+                    console.log(this);
+                    this.color=val;
+                })
+            },
+            methods:{
+                change(){
+                    EventBus.$emit('changeGreen',this.old);
+                }
+            }
+        }
+
+         let brotherTwo={
+            template:'<div>{{color}}<button @click="change">变红</button></div>',
+            data(){
+                return {color:'红色',old:'红色'}
+            },
+            created () {
+                EventBus.$on('changeGreen',(val)=>{
+                    this.color=val;
+                })
+            },
+            methods:{
+                change(){
+                    EventBus.$emit('changeRed',this.old);
+                }
+            }
+        }
+
+        let vm=new Vue({
+            el:'#app',
+            components: {
+              brotherOne,
+              brotherTwo,
+            }
+        })
+    </script>
+</body>
+</html>

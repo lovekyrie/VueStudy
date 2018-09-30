@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>子传父$emit</title>
+</head>
+<body>
+    <div id="app">
+        父亲:{{money}}
+        <!-- $on('child-msg',things) -->
+        <child :m="money" @child-msg="things"></child>
+    </div>
+    <script src="../../node_modules/vue/dist/vue.js"></script>
+    <!-- 父亲绑定一些事件，儿子触发这个时间 将参数传递过去 单向数据流 ，父亲数据刷新 儿子就刷新 -->
+    <script>
+        let vm=new Vue({
+            el:'#app',
+            data:{
+                money:400
+            },
+            methods:{
+                //响应儿子的请求
+                things(val){
+                    // alert(val);
+                    this.money=val;
+                }
+            },
+            components: {
+                child:{
+                    template:'<div>儿子: {{m}} <button @click="getMoney()">多要钱</button></div>',
+                    props:['m'],
+                    methods:{
+                        getMoney(){
+                            this.$emit('child-msg',800);
+                        }
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>体会面向过程和面向对象的编程思想</title>
+  <style>
+    #app{
+      width: 200px;
+      height: 200px;
+      background-color: #f00;
+    }
+  </style>
+</head>
+<body>
+  <input type="button" value="改变颜色" id="btn">
+  <div id="app"></div>
+
+  <script>
+    // 面向过程
+   /*  document.getElementById('btn').onclick=function(){
+      document.getElementById('app').style.backgroundColor='yellow';
+    } */
+
+    // 面向对象
+    function  ChangeStyle(btnId,divId,color){
+      this.btnObj=document.getElementById(btnId);
+      this.divId=document.getElementById(divId);
+      this.color=color;
+    }
+
+    // 数据共享来改变背景颜色
+    ChangeStyle.prototype.init=function(){
+      console.log(this); //就是实例对象--就是当前对象
+      var that=this;
+      this.btnObj.onclick=function(){
+        // 由于this.btnObj的回调函数里面中的this指的是this.btnObj,所以这里要用var that=this,重新指向外部的this
+        that.divId.style.backgroundColor=that.color;
+      }
+    }
+
+    // 实例化对象
+    var  cs=new ChangeStyle("btn","app","yellow");
+    cs.init();
+     
+  </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue中的事件绑定</title>
+</head>
+
+<body>
+    <!-- v-on:===@ -->
+    <!-- 如果不传递参数，则不要写()自动传入事件源，如果写()，要手动传入$event属性 -->
+    <div id="app" @click="fn">
+        点我啊
+        <input type="text" @change="blurEvent" name="" id="" v-model="datetime">
+    </div>
+
+    <script src="../../node_modules/vue/dist/vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                value: 1,
+                datetime:""
+            },
+            methods: {
+                //mothods和data中的数据会全部放到vm上，而且名字不能冲突，冲突会报错，mothods中的this指向的都是实例
+                // fn:function(){alert(1)}
+                //es6可以省略:function
+                fn() {
+                    alert(this.value)
+                },
+                blurEvent(){
+                  alert(this.datetime);
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

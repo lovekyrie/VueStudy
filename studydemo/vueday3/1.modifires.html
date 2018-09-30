@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- stopPropagation 阻止事件传播 -->
+        <!-- once 只绑定一次 -->
+        <!-- self只有自己的dom元素才会触发事件 -->
+        <div @click="parent">parent
+                <div @click.self="child">child
+                    <div @click="grandson">
+                        grandson
+                    </div>
+                </div>
+        </div>
+        <a href="http://www.zhufengpeixun.com" @click.prevent="parent">珠峰</a>
+    </div>
+    <script src="../../node_modules/vue/dist/vue.js"></script>
+    <script>
+        let vm=new Vue({
+            el:'#app',
+            methods:{
+                parent(){alert('parent')},
+                child(){alert('child')},
+                grandson(){alert('grandson')}
+            },
+            data:{
+
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训todoList</title>
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+
+<body>
+    <div id="app">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">
+                        todoList
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="panel panel-warning">
+                        <div class="panel-heading">
+                            <h3 class="text-danger">亲~ ^_^您有 {{pendingcount}} 件事情要完成</h3>
+                            <input type="text" v-model="val" class="form-control" @keyup.enter="add">
+                        </div>
+                        <div class="panel-body">
+                            <ul class="list-group">
+                                <li class="list-group-item" v-show="todo.isShow" v-for="(todo, index) in todoLists" 
+                                :key="index" @dblclick="remember(todo)">
+                                    <span v-show="cur!=todo">
+                                        <input type="checkbox" v-model="todo.isSelected"> {{todo.title}}
+                                    </span>
+                                    <input type="text" v-model="todo.title" v-show="cur==todo" v-focus="cur==todo"
+                                    @keyup.13="cancel" @blur="cancel">
+                                    <button class="pull-right btn btn-danger btn-xs" @click="removeTodo(todo)">&bigotimes;</button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="panel-footer">
+                            <ul class="nav nav-pills">
+                                <li role="presentation" @click="showAll">
+                                    <a href="#">全部任务</a>
+                                </li>
+                                <li role="presentation" @click="completed">
+                                    <a href="#">已完成</a>
+                                </li>
+                                <li role="presentation" @click="pending">
+                                    <a href="#">未完成</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="../../node_modules/vue/dist/vue.js"></script>
+    <script scr="../../node_modules/axios/dist/axios.js"></script>
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            directives:{
+                focus(el,bindings){
+                    //当点击当前Li时让内部的输入框获得焦点
+                    if(bindings.value){
+                        el.focus();
+                    }
+                }
+            },
+            data: {
+                todoLists: [{
+                        isSelected: true,
+                        title: 'washing',
+                        isShow: true,
+                    },
+                    {
+                        isSelected: false,
+                        title: 'eating',
+                        isShow: true,
+                    },
+                    {
+                        isSelected: true,
+                        title: 'drinking water',
+                        isShow: true
+                    }
+                ],
+                val: '',
+                cur:''
+            },
+            watch: {  
+              todoLists:{//watch默认值监控一层的数据变化，深度监控
+                handler(){ //默认写成函数 就相当于默认写了个handler
+                    //localStrrage默认存的是字符串
+                    localStorage.setItem('data',JSON.stringify(this.todoLists));
+                },deep:true
+
+              }  
+            },
+            created() {//ajxa获取 初始化数据
+                //如果localStorage中有数据 就用有的 没数据就用默认
+                this.todoLists=JSON.parse(localStorage.getItem('data')) || this.todoLists;
+            },
+            computed: {
+                pendingcount() {
+                    return this.todoLists.filter(item => !item.isSelected).length;
+                }
+            },
+            methods: {
+                //keydown/keyup差一个单词，keydown的时候内容灭有进入到输入框内
+                add: function (e) {
+                    this.todoLists.unshift({
+                        isSelected: false,
+                        title: this.val,
+                        isShow: true
+                    });
+                    this.val = '';
+                },
+                removeTodo: function (p) {
+
+                    this.todoLists = this.todoLists.filter(item => item !== p);
+                },
+                pending: function () {
+
+                    this.todoLists.forEach(item => {
+                        item.isShow = !item.isSelected;
+                    })
+                },
+                completed: function () {
+
+                    this.todoLists.forEach(item => {
+                        item.isShow = item.isSelected;
+                    });
+                },
+                showAll: function () {
+
+                    this.todoLists.forEach(item => {
+                        item.isShow = true;
+                    })
+                },
+                remember(todo){
+                    this.cur=todo;
+                },
+                cancel(){
+                    this.cur='';
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

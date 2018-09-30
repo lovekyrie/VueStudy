@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>面向对象编程改变元素框的样式</title>
+  <style>
+   #app{
+      width: 200px;
+      height: 200px;
+      background-color: #f00;
+    }
+  </style>
+</head>
+<body>
+  <input type="button" value="改变样式" id="btn">
+  <div id="app"></div>
+
+  <script src="../../node_modules/jquery/dist/jquery.js"></script>
+  <script>
+    function ChangeStyle(btnObj,divObj,json){
+      this.btnObj=btnObj;
+      this.divObj=divObj;
+      this.json=json;
+    }
+
+    ChangeStyle.prototype.init=function(){
+
+      var that=this;
+      this.btnObj.onclick=function(){
+        debugger;
+        for(var key in that.json){
+          that.divObj.style[key]=that.json[key];
+        }
+      }
+    }
+
+    var json={
+      "width":"500px",
+      "height":"800px",
+      "backgroundColor":"blue",
+      "opacity":"0.2"
+    };
+    
+    let btnObj=document.getElementById('btn');
+    let divObj=document.getElementById('app');
+    var cs=new ChangeStyle(btnObj,divObj,json);
+    cs.init();
+  </script>
+</body> 
+</html>

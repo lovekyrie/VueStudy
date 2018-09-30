@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>通过事件向父级组件发送消息</title>
+</head>
+
+<body>
+    <!-- 在我们开发<blog-post>组件时，它的一些功能可能要求我们和父级组件进行沟通 -->
+    <!-- 在其父组件中，我们可以通过添加一个postFontSize数据属性来支持这个功能： -->
+    <div id='blog-posts-events-demo'>
+        <div :style="{fontSize:postFontSize+'em'}">
+            <blog-post v-for="(post, index) in posts" :key="post.id" :post="post" @enlarge-text="onEnlargeText">
+            </blog-post>
+        </div>
+    </div>
+    <script src="../../node_modules/vue/dist/vue.js"></script>
+    <script>
+        Vue.component('blog-post', {
+            props: ['post'],
+            template: `
+                    <div class="blog-post">
+                        <h3>{{post.title}}</h3>
+                        <button @click="$emit('enlarge-text',0.1)">
+                            Enlarge text
+                        </button>
+                        <div v-html="post.content"></div>
+                        <p>{{post.comments}}</p>
+                    </div>
+                `
+        })
+
+        let vm = new Vue({
+            el: '#blog-posts-events-demo',
+            data: {
+                posts: [{
+                        id: 1,
+                        title: 'My journey with Vue.',
+                        content: '<div>This is a string.</div',
+                        publishedAt: '',
+                        comments: '降低收益就直说呗,还非要甩锅给玩家'
+                    },
+                    {
+                        id: 2,
+                        title: 'Bolgging with Vue',
+                        content: '<div>This is a string.</div',
+                        publishedAt: '',
+                        comments: '震关东任务作为主要的铜币产出,流程又臭又长,现在又把收益降低了'
+                    },
+                    {
+                        id: 3,
+                        title: 'Whe Vue is so fun',
+                        content: '<div>This is a string.</div',
+                        publishedAt: '',
+                        comments: `
+                                然后两个英雄本,收益不少的,然后变成一周一次的
+                                原来是2个本可以刷7词
+                                现在只有2次了
+                            `
+                    }
+                ],
+                postFontSize: 1
+            },
+            methods: {
+                onEnlargeText: function (enlargeAmount) {
+                    this.postFontSize += enlargeAmount;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

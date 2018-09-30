@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>简易todo</title>
+</head>
+
+<body> 
+    <div id="app">
+        <input type="text" v-model="val" @keyup.enter="add">
+        <ul>
+            <li v-for="(item,index) in arr">
+                {{item}}
+                <button @click="remove(index)">删除</button> 
+            </li>
+        </ul>
+    </div>
+    <script src="../../node_modules/vue/dist/vue.js"></script>
+
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                val: '',
+                arr: []
+            },
+            methods: {
+                add(e) {
+                    //在指定keyup的时候可以利用修饰符
+                    //if (e.keyCode === 13) {
+                        this.arr.unshift(this.val);
+                        this.val = '';
+                    //}
+                },
+                remove(i){
+                    this.arr=this.arr.filter((item,index)=>index!==i);
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

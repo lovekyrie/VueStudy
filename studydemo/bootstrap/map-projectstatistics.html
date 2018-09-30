@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>班级项目统计-地图显示</title>
+  <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="doc.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      height: 92vh;
+    }
+
+    i {
+      font-style: normal;
+      color: chocolate;
+    }
+
+    .row {
+      margin-top: 20px;
+    }
+
+    .content {
+      width: 100%;
+      height: 90%;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-content: space-between;
+    }
+
+    .content #sectorchart,
+    .content #linechart {
+      border: 1px solid #d9d9d9;
+      width: 49.5%;
+      height: 20%;
+    }
+
+    #sectorchart>.wrap,
+    #linechart>.wrap {
+      margin: 5px 20px;
+    }
+    
+    .wrap h3 {
+      font-size: 18px;
+    }
+
+    .wrap .item{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-content: space-between;
+    }
+
+    .wrap .item >div{
+      margin: 5px 0;
+      width: 50%;
+    }
+
+    .content #histogram {
+      border: 1px solid #d9d9d9;
+      width: 100%;
+      height: 79%;
+      
+    }
+
+    .plan>span:nth-of-type(1),
+    .processing>span:nth-of-type(1),
+    .hascompleted>span:nth-of-type(1){
+      display: inline-block;
+      width: 50%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9 col-md-offset-11">
+        <a href="javascript:void()">关闭</a>
+      </div>
+      <div class="col-md-8 col-md-offset-2">
+        <p class="text-center">人才培训中心项目统计</p>
+        <p class="text-center">
+          办班总数
+          <i>190</i>
+          个
+        </p>
+      </div>
+    </div>
+    <div class="content">
+      <!-- 扇形图 -->
+      <div id="sectorchart">
+        <div class="wrap">
+          <h3>本月项目进度统计</h3>
+          <div class="item">
+            <div class="plan">
+              <span>
+                计划开班项目总数：
+              </span>
+              <span>
+                <i>50个</i>
+              </span>
+            </div>
+            <div>
+              <span>
+                拟训人数：
+                <i>3000人</i>
+              </span>
+            </div>
+            <div class="processing"> 
+              <span>
+                进行中项目总数：
+              </span>
+              <span>
+                <i>30个</i>
+              </span>
+            </div>
+            <div>
+              <span>
+                在训人数：
+                <i>1800人</i>
+              </span>
+            </div>
+            <div class="hascompleted">
+              <span>
+                已结束项目总数：
+              </span>
+              <span>
+                <i>20个</i>
+              </span>
+            </div>
+            <div>
+              <span>
+                已训人数：
+                <i>1200人</i>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <!-- 折线图 -->
+      <div id="linechart">
+          <div class="wrap">
+              <h3>本周项目进度统计</h3>
+              <div class="item">
+                <div class="plan">
+                  <span>
+                    计划开班项目总数：
+                  </span>
+                  <span>
+                    <i>20个</i>
+                  </span>
+                </div>
+                <div>
+                  <span>
+                    拟训人数：
+                    <i>1200人</i>
+                  </span>
+                </div>
+                <div class="processing"> 
+                  <span>
+                    进行中项目总数：
+                  </span>
+                  <span>
+                    <i>10个</i>
+                  </span>
+                </div>
+                <div>
+                  <span>
+                    在训人数：
+                    <i>600人</i>
+                  </span>
+                </div>
+                <div class="hascompleted">
+                  <span>
+                    已结束项目总数：
+                  </span>
+                  <span>
+                    <i>5个</i>
+                  </span>
+                </div>
+                <div>
+                  <span>
+                    已训人数：
+                    <i>300人</i>
+                  </span>
+                </div>
+    
+              </div>
+            </div>
+      </div>
+      <!-- 柱状图 -->
+      <div id="histogram">
+
+      </div>
+    </div>
+  </div>
+
+  <script src="../../../node_modules/echarts/dist/echarts.js"></script>
+</body>
+
+</html>

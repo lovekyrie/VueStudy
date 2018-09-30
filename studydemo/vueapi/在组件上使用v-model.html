@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>在组件中使用v-model</title>
+</head>
+<body>
+    <!-- 自定义事件也可以用于创建支持v-model的自定义输入组件。记住： -->
+    <input v-model="serachText">
+
+    <!-- 等价于 -->
+    <input :value="serachText"
+        @input="serachText=$event.target.value">
+    
+    <!-- 当用在组件上时，v-model则会这样 -->
+    <!-- <custom-input v-bind:value="serachText"
+        v-on:input="serachText=$event">
+    </custom-input> -->
+    <div id="demo-vModel">
+        <custom-input v-model="serachText">
+
+        </custom-input>
+    </div>
+
+    <script src="../../node_modules/vue/dist/vue.js"></script>
+    <script>
+        Vue.component('custom-input',{
+            props:['value'],
+            template:`
+                <input
+                    v-bind:value="value"
+                    @input="$emit('input',$event.target.value)"
+                >
+            `
+        })
+
+        let vm=new Vue({
+            el:'#demo-vModel',
+            data:{
+                serachText:''
+            }
+        })
+    </script>
+</body>
+</html>

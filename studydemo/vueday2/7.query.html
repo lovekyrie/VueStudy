@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>7-查找数据(引用animate.css)</title>
+    <link rel="stylesheet" href="../../node_modules/animate.css/animate.css">
+    <style>
+        div>div{
+            height: 100px;
+            width: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- v-if v-show if操作的是dom，show操作的是样式 -->
+        <!-- 如果频繁的切换dom使用v-show ,当数据一开始就确定下来使用v-if更好一些
+        如果if不通过，内部指令不会在执行了   -->
+        <button @click="flag=!flag">动画</button>
+        查找:<input type="text" v-model="query">
+        <!-- vue自定义的标签(组件) -->
+        <transition-group enter-active-class="animated bounceInUp" leave-active-class="animated bounceOutDown">
+            <!-- v-for 默认会服用原有的dom元素，如果加了key，而且key不同，她认为就是两个人。注意这里用index不行，值始终是1 -->
+            <div v-for="(item, index) in newArr" :key="Math.random()">
+                {{item}}
+            </div>
+        </transition-group>
+       
+    </div>
+    <script src="../../node_modules/vue/dist/vue.js"></script>
+    <script>
+        let vm=new Vue({
+            el:'#app',
+            computed:{
+                newArr(){
+
+                    return this.arr.filter(item=>item==this.query);
+                }
+            },
+            data:{
+                flag:true,
+                arr:[1,2,3,4,5],
+                query:'' //用于绑定输入框的查询字符
+            }
+        })
+    </script>
+</body>
+</html>

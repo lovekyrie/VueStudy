@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue生命周期</title>
+</head>
+<body>
+    <div id="app">
+
+    </div>
+    <script src="../../node_modules/vue/dist/vue.js"></script>
+    <script>
+        // 生命周期: beforeCreate created
+        //          beforeMount mounted
+        //          beforeUpdate updated
+        //          beforeDestroy destroyed
+        let vm=new Vue({//根实例 初始化时会调用很多方法(钩子函数)
+           // el:'#app',
+            data:{
+                a:1
+            },
+            beforeCreate() { //1 此方法 用不到
+                
+            },
+            created() {//2 获取ajax，初始化操作
+                
+            },
+            beforeMount() {//  没有什么实际意义
+                alert(1)
+            },
+            template:'<div>{{a}}</div>', //4 如果有template属性会用模板替换掉外部HTML，
+            //只要有此属性APP中的内容就没有任何意义，只能有一个根元素，不能是文本节点
+            mounted() {
+                //真是dom渲染玩了，可以操作dom了
+            },
+            beforeUpdate () {//一般用watch来替换掉
+                //alert('1');
+            },
+            updated () {
+                alert('更新之后！');
+            },
+            beforeDestroy() {//可以清楚定时器 或者清除事件绑定
+                alert('销毁前');
+            },
+            destroyed () {
+                alert('销毁后');
+            }
+        })
+
+        vm.$mount('#app');// 3.要保证有编译的元素 
+        vm.$destroy();
+    </script>
+</body>
+</html>

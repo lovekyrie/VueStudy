@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>上传头像</title>
+    <style>
+        div {
+            width: 300px;
+            height: 300px;
+
+        }
+
+        img {
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            max-height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="screenshot-src">
+        <img id="screenshot-img" src="images/5.jpg" alt="">
+    </div>
+
+    <script src="node_modules/html2canvas/dist/html2canvas.js"></script>
+    <script>
+    
+
+        function takeHighResScreenshot(srcEl, destIMG, scaleFactor) {
+            // Save original size of element
+            var originalWidth = srcEl.offsetWidth;
+            var originalHeight = srcEl.offsetHeight;
+            // Force px size (no %, EMs, etc)
+            srcEl.style.width = originalWidth + "px";
+            srcEl.style.height = originalHeight + "px";
+
+            // Position the element at the top left of the document because of bugs in html2canvas. The bug exists when supplying a custom canvas, and offsets the rendering on the custom canvas based on the offset of the source element on the page; thus the source element MUST be at 0, 0.
+            // See html2canvas issues #790, #820, #893, #922
+            srcEl.style.position = "absolute";
+            srcEl.style.top = "0";
+            srcEl.style.left = "0";
+
+            // Create scaled canvas
+            var scaledCanvas = document.createElement("canvas");
+            scaledCanvas.width = originalWidth * scaleFactor;
+            scaledCanvas.height = originalHeight * scaleFactor;
+            scaledCanvas.style.width = originalWidth + "px";
+            scaledCanvas.style.height = originalHeight + "px";
+            var scaledContext = scaledCanvas.getContext("2d");
+            scaledContext.scale(scaleFactor, scaleFactor);
+
+            html2canvas(srcEl, { canvas: scaledCanvas })
+                .then(function (canvas) {
+                    destIMG.src = canvas.toDataURL("image/png",0.92);
+                    srcEl.style.display = "none";
+                });
+        };
+
+        var src=document.getElementById('screenshot-src');
+        var img=document.getElementById('screenshot-img');
+
+        takeHighResScreenshot(src,img,2);
+    </script>
+</body>
+
+</html>

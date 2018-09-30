@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-bind</title>
+    <style>
+        .x{
+            background-color: blue;
+        }
+        .y{
+            font-size: 100px;
+        }
+        .z{
+            color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+    <!-- :class绑定的样式和class绑定的不冲突 -->
+    <!-- 1) {className:isActive} -->
+        <div class="x" :class="{z:flag,y:true}">我很帅</div>
+    </div>
+    <script src="../../node_modules/vue/dist/vue.js"></script>
+    <script>
+        //第一种方式是对象 第二种方式是数组
+        let vm=new Vue({
+            el:'#app',
+            data:{
+                flag:true
+            }
+        })
+    </script>
+</body>
+</html>

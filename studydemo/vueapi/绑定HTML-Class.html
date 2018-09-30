@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>绑定HTML Class</title>
+    <style>
+        #array{
+            width: 100px;
+            height: 100px;
+            background: #ccc;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div v-bind:class="{active:isActive}">
+    </div>
+
+    <!-- 你可以在对象中传入更多属性来动态切换多个class.
+    此外，v-bind:class指令也可以与普通的class属性共存 -->
+    <div id="demo" class="static" v-bind:class="{active:isActive,'text-danger':hasError}">
+    </div>
+
+    <!-- 绑定的数据对象不必定义在模板里 -->
+    <div id='noneed' v-bind:class="classObject">
+    </div>
+
+    <!-- 我们也可以在这里绑定一个返回对象的计算属性 -->
+    <div id='calculate' v-bind:class="classObject">
+
+    </div>
+
+    <!-- 数组语法 -->
+    <div id="array" v-bind:class="[activeClass,errorClass]"></div>
+
+    <!-- 如果你也想根据条件切换列表中的class,可以用三元表达式 -->
+    <div v-bind:class="[isActive?activeClass:'',errorClass]"></div>
+
+    <!-- 不过当有多个class时这样写有些繁琐所以在数组中语法也可以使用对象语法 -->
+    <div v-bind:class="[{active:isActive},errorClass]"></div>
+    <script>
+        var vm = new Vue({
+            el: '#demo',
+            data: {
+                isActive: true,
+                hasError: false
+            }
+        })
+
+        var vm1 = new Vue({
+            el: '#noneed',
+            data: {
+                classObject: {
+                    active: true,
+                    'text-danger': false
+                }
+            }
+        })
+
+        var vm2 = new Vue({
+            el: '#calculate',
+            data: {
+
+                isActive: true,
+                error: null
+            },
+            computed: {
+
+                classObject:function(){
+                    return{
+                        active:this.isActive && !this.error,
+                        'text-danger':this.error && this.error.type==='fatal'
+                    }
+                }
+            }
+        });
+
+        var vm3=new Vue({
+            el:'#array',
+            data:{
+                activeClass:'active',
+                errorClass:'text-danger'
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>轮播图</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        ul,
+        li {
+            margin: 0;
+            padding: 0;
+        }
+
+        #container {
+            width: 600px;
+            overflow: hidden;
+            position: relative;
+            top: 100px;
+            left: 350px;
+        }
+
+        .inner {
+            width: 6000px;
+            padding: 0px;
+            margin: 0px;
+            transition: all 2s;
+        }
+
+        .divimg {
+            position: relative;
+            background-color: skyblue;
+            width: 600px;
+            height: 300px;
+            float: left;
+        }
+
+        ul {
+            position: absolute;
+            z-index: 1;
+            left: 50%;
+            margin-left: -50px;
+            bottom: 20px;
+            list-style: none;
+        }
+
+        ul li {
+            margin: 0 5px;
+            float: left;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #fff;
+        }
+
+        a.arrow{
+            position: absolute;
+            z-index: 1;
+            width: 15px;
+            height: 15px;
+            top: 50%;
+            margin-top: -10px;
+            line-height: 15px;
+            cursor: pointer;
+        }
+
+        #prev{
+            left:10px;
+        }
+
+        #next{
+            right: 10px;
+        }
+
+        li.on{
+            background-color: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <!-- 轮播图图片 -->
+        <div class="inner">
+            <div class="divimg">图片1</div>
+            <div class="divimg">图片2</div>
+            <div class="divimg">图片3</div>
+            <div class="divimg">图片4</div>
+        </div>
+        <ul>
+            <li class="on"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <a class="arrow" id="prev"></a>
+        <a class="arrow" id="next"></a>
+    </div>
+    <!-- 按钮 -->
+
+   <script src="carouselMap.js"></script>
+</body>
+
+</html>

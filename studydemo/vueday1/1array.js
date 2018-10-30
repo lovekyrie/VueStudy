@@ -78,7 +78,7 @@ let everyResult=arr3.every(item=>item.toString().indexOf(5)>-1);
 console.log('everyResult:'+everyResult);
 //8) reduce 收敛 4个参数 返回的是叠加的结果 原数组保持不变 回调函数返回结果
 //第一次循环 prev(previous) 代表的是第一项，next是数组的第二项
-//第二次循环 当没有return 是prev代表undefined next是数组的第三项
+//第二次循环 当没有return时 prev代表undefined next是数组的第三项
 //          当return时 prev代表return值 next还是第三项
 
 let sum=[1,2,3,4,5].reduce(function(perv,next,index,item){
@@ -90,7 +90,7 @@ console.log(sum);
 let sum2=[{price:30,count:2},{price:30,count:3},{price:40,count:4}].reduce(function (prev,next) {
 
     return prev+next.price*next.count;
-  },0) //指定第一次perv的值，相当于这个数组的第一项为0
+  },0) //指定第一次prev的值，相当于这个数组的第一项为0
   console.log(sum2);
 
   //二维数组转为一维数组

@@ -8,28 +8,39 @@
 </template>
 
 <script>
-import bookHeader from '../base/bookHeader'
-import Swiper from '../base/Swiper'
-import {getSliders} from '../api'
+import bookHeader from "../base/bookHeader";
+import Swiper from "../base/Swiper";
+import { getSliders ,getHotBook} from "../api";
 
 export default {
-  async created() {
-   let{data:sliders} =await getSliders();
-   console.log(sliders);
-   this.sliders=sliders;
+  created() {
+
+    this.getSlider();
+    this.getHot();
   },
-  data(){
+  data() {
     return {
-      sliders:[],
-    }
+      sliders: [],
+      hotBooks:[],
+    };
   },
-  components:{
+  components: {
     bookHeader,
-    Swiper,
+    Swiper
+  },
+  methods: {
+    async getSlider() {
+      let data= await getSliders();
+      console.log(sliders);
+      this.sliders = data;
+    },
+    async getHot(){
+      let data=await getHotBook();
+      this.hotBooks=data;
+    }
   }
-}
+};
 </script>
 
 <style>
-
 </style>

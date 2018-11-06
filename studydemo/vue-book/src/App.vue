@@ -36,4 +36,16 @@ a{
 input,button{
   -webkit-appearance: none;
 }
+
+.content{
+  position: fixed;
+  top: 40px;
+  left: 0;
+  height: 100px;
+  width: 100%;
+}
+
+img{
+  width: 100%;
+}
 </style>

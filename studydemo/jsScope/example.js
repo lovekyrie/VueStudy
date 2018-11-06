@@ -1,15 +1,14 @@
+function test() {
 
-function test(){
+  console.log(a);
+  console.log(foo());
 
-    console.log(a);
-    console.log(foo());
-    
-    var a=2;
+  var a = 2;
 
-    var foo= function () {
-        return 2;
-    }  
-   
+  var foo = function () {
+    return 2;
+  }
+
 }
 
 test();

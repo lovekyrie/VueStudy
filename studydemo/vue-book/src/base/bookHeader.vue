@@ -32,6 +32,7 @@ export default {
     text-align: center;
     background-color:lightblue;
     font-weight: bold;
+    z-index: 199;
     i{
       position: absolute;
       left: 10px;

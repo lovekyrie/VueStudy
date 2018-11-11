@@ -34,7 +34,7 @@
     border-top: 1px solid #ccc;
     a{
       display: flex;
-      color: #deff4d;
+      color: #0055dd;
       flex-direction: column;
       flex: 1;
       justify-content: center;

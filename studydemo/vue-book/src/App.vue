@@ -38,10 +38,10 @@ input,button{
 }
 
 .content{
-  position: fixed;
+  position: relative;
+  margin-bottom: 50px;
   top: 40px;
   left: 0;
-  height: 100px;
   width: 100%;
 }
 

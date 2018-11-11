@@ -16,7 +16,7 @@
             "request": "launch",
             "name": "Launch Program",
             "program": "${file}",
-            "runtimeExecutable": "/usr/local/opt/nvm/versions/node/v11.1.0/bin/node"
+            "runtimeExecutable": "/Users/duanyupeng/.nvm/versions/node/v11.1.0/bin/node"
         }
     ]
 }

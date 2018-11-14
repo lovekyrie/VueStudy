@@ -3,15 +3,17 @@
     <book-header>列表页</book-header>
     <div class="content">
       <ul>
-        <li v-for="(item, index) in books" :key="index">
+        <router-link v-for="(item, index) in books" :key="index"
+        :to="{name:'detail',params:{bid:item.bookId}}" tag="li">
           <img :src="item.bookCover">
           <div>
             <h4>{{item.bookName}}</h4>
             <p>{{item.bookInfo}}</p>
             <span>{{item.bookPrice}}</span>
-            <button @click="removeBook(item.bookId)">删除</button>
+            <!-- 在删除某个图书的时候，阻止冒泡 -->
+            <button @click.stop="removeBook(item.bookId)">删除</button>
           </div>
-        </li>
+        </router-link>
       </ul>
     </div>
   </div>

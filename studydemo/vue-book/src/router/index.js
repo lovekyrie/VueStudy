@@ -13,7 +13,8 @@ export default new Router({
     {path:'/',redirect:'/home'},
     {path:'/add',component:add},
     {path:'/collect',component:collect},
-    {path:'/detail',component:detail},
+    // /detail/1 {bid:1}路径参数 必须有到那时可以随机
+    {path:'/detail/:bid',component:detail,name:'detail'},
     {path:'/home',component:home},
     {path:'/list',component:list},
     {path:'*',redirect:'/home'}

@@ -59,8 +59,13 @@ http.createServer((req, res) => {
     let id = parseInt(query.id) //取出的字符串
     switch (req.method) {
       case 'GET':
-        if (id) {
-
+        if (!isNaN(id)) {
+          read(function (books) {
+            let book = books.find(item => item.bookId === id)
+            if (!book) book = {} // 找不到bookID时返回空对象
+            res.setHeader('Content-Type', 'application/json;charset=utf8')
+            res.end(JSON.stringify(book))
+          })
         } else {
           read(function (books) {
             let booksList = books.reverse();
@@ -70,8 +75,44 @@ http.createServer((req, res) => {
         }
         break;
       case 'POST':
+        let str='';
+        req.on('data',chunk=>{
+          str+=chunk;
+        })
+        req.on('end',()=>{
+          let book=JSON.parse(str)
+          read(function(books){
+            book.bookId=books.length>0?books[books.length-1].bookId+1:1;
+            books.push(book)
+            write(books,function(){
+              res.end(JSON.stringify(book))
+            })
+          })
+        })
         break;
       case 'PUT':
+        if (id) {
+          let str = ''
+          req.on('data', chunk => {
+            str += chunk;
+          });
+          req.on('end', () => {
+            let book = JSON.parse(str); //book是要改成的样子
+            read(function (books) {
+              books = books.map(item => {
+                if (item.bookId === id) { //找到ID相同的那一本
+                  return book
+                }
+                return item
+              })
+              write(books, function () {
+                res.end(JSON.stringify(book))
+              })
+            });
+
+
+          })
+        }
         break;
       case 'DELETE':
         read(function (books) {

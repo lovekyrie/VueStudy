@@ -15,7 +15,9 @@ export default new Router({
     {path:'/collect',component:collect},
     // /detail/1 {bid:1}路径参数 必须有到那时可以随机
     {path:'/detail/:bid',component:detail,name:'detail'},
-    {path:'/home',component:home},
+    {path:'/home',component:home,meta:{
+      keepAlive:true
+    }},
     {path:'/list',component:list},
     {path:'*',redirect:'/home'}
   ]

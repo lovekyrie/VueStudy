@@ -50,7 +50,9 @@ http.createServer((req, res) => {
     read(function (books) {
       let hot = books.reverse().slice(0, 6);
       res.setHeader('Content-Type', 'application/json;charset=utf8')
-      res.end(JSON.stringify(hot))
+      setTimeout(()=>{
+        res.end(JSON.stringify(hot))
+      },500)
     });
     return
   }

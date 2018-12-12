@@ -32,6 +32,7 @@
     height: 50px;
     display: flex;
     border-top: 1px solid #ccc;
+    background-color: #ccc;
     a{
       display: flex;
       color: #0055dd;

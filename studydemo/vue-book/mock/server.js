@@ -40,19 +40,35 @@ http.createServer((req, res) => {
     pathname,
     query
   } = url.parse(req.url, true) //当为true的时候，可以把query解析成对象
-
+  let pageSize = 5;
   if (pathname === '/sliders') {
     res.setHeader('Content-Type', 'application/json;charset=utf8')
     return res.end(JSON.stringify(sliders));
+  }
+
+  if (pathname === '/page') {
+    let offset = parseInt(query.offset) || 0;
+    read(function (books) {
+      let result = books.reverse().slice(offset, offset + pageSize)
+      let hasMore = true
+      if (books.length <= offset + pageSize) {
+        hasMore = false
+      }
+      res.setHeader('Content-Type', 'application/json;charset=utf8')
+        return res.end(JSON.stringify({
+          hasMore,
+          books: result
+        }))
+    })
   }
 
   if (pathname === '/hot') {
     read(function (books) {
       let hot = books.reverse().slice(0, 6);
       res.setHeader('Content-Type', 'application/json;charset=utf8')
-      setTimeout(()=>{
+      setTimeout(() => {
         res.end(JSON.stringify(hot))
-      },500)
+      }, 500)
     });
     return
   }
@@ -77,16 +93,16 @@ http.createServer((req, res) => {
         }
         break;
       case 'POST':
-        let str='';
-        req.on('data',chunk=>{
-          str+=chunk;
+        let str = '';
+        req.on('data', chunk => {
+          str += chunk;
         })
-        req.on('end',()=>{
-          let book=JSON.parse(str)
-          read(function(books){
-            book.bookId=books.length>0?books[books.length-1].bookId+1:1;
+        req.on('end', () => {
+          let book = JSON.parse(str)
+          read(function (books) {
+            book.bookId = books.length > 0 ? books[books.length - 1].bookId + 1 : 1;
             books.push(book)
-            write(books,function(){
+            write(books, function () {
               res.end(JSON.stringify(book))
             })
           })

@@ -36,18 +36,21 @@ export default {
   created() {
     this.getData();
   },
+  mounted() {
+    window.addEventListener('scroll',this.LoadMore,true)
+  },
   methods: {
     //下滑实现加载
     LoadMore(){
-      // clearTimeout(this.timer)
-      // this.timer=setTimeout(()=>{
-      //   //scrool
-      //   let {scrollTop,clientHeight,scrollHeight}=this.$refs.scroll
-      //   if(scrollTop+clientHeight+20>scrollHeight){
-      //     this.getData()
-      //   }
-      // },13)
-      console.log(1000)
+      clearTimeout(this.timer)
+      this.timer=setTimeout(()=>{
+        //scrool
+        let {scrollTop,clientHeight,scrollHeight}=this.$refs.scroll
+        if(scrollTop+clientHeight+20>scrollHeight){
+          this.getData()
+        }
+      },13)
+      // console.log(1000)
     },
     //借助按钮
     LoadingMore(){

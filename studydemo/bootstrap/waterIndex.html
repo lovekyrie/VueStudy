@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>课程统计</title>
+  <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="doc.css">
+  <link rel="stylesheet/less" href="./waterIndex.less">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.7.2/less.min.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <!-- title -->
+      <div class="col-md-12 title">
+        <!-- time -->
+        <div>
+          <span>
+            <i>2019</i>年<i>01</i>月
+            <i>16</i>日 星期<i>三</i>
+            <i>09:01:06</i>
+          </span>
+        </div>
+        <!-- titleName -->
+        <div>
+          <span>宁波城市二次供水智慧管理平台</span>
+          <span>Ningbo Wisdom Water Supply Management Platform</span>
+        </div>
+        <!-- weather -->
+        <div>
+          天气预报模块
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <!-- 扇形图 -->
+      <div id="left-cont">
+        <div class="pump">
+          <div class="cont-title">
+            <span>泵房档案信息</span>
+          </div>
+          <div>
+            <div><span> <b>3</b> </span><span>前期验收</span></div>
+            <div><span><b>765</b></span><span>泵房总数</span></div>
+            <div><span><b>7652222</b></span><span>水箱总容积</span></div>
+            <div><span><b>76%</b></span><span>设备监控上线率</span></div>
+          </div>
+          <div>
+            <div><span><b>765</b></span><span>设备总套数</span></div>
+            <div><span>无负压：55</span><span>工频：55</span></div>
+            <div><span>水箱+变频：55</span><span>箱式无负压：55</span></div>
+          </div>
+        </div>
+        <div class="equip">
+          <div class="cont-title">
+            <span>设备档案信息</span>
+          </div>
+          <div>
+            <div><span> <b>7652</b>&nbsp;&nbsp;&nbsp;&nbsp;11kw及以上：55</span><span>生活水泵 <i>&nbsp;&nbsp;11kw以下：55</i></span></div>
+            <div><span><b>3</b></span><span>水箱个数</span></div>
+            <div><span><b>765</b></span><span>电动阀</span></div>
+          </div>
+        </div>
+        <div class="equip-maintain">
+          <div class="cont-title">
+            <span>设备保养</span>
+          </div>
+          <div>
+            <div><span>6</span><span>本月保养（套）</span></div>
+            <div><span>20</span><span>累计（套）</span></div>
+            <div><span>设备保养率</span></div>
+          </div>
+          <div class="cont-title">
+            <span>水箱清洗</span>
+          </div>
+          <div>
+            <div><span>6</span><span>本月清洗（吨）</span></div>
+            <div><span>20</span><span>累计（吨）</span></div>
+            <div><span>水箱清洗率</span></div>
+          </div>
+        </div>
+      </div>
+      <!-- 折线图 -->
+      <div id="mid-cont">
+        <div class="map">
+
+        </div>
+      </div>
+      <!-- 柱状图 -->
+      <div id="right-cont">
+        <div class="order"></div>
+        <div class="clean"></div>
+        <div class="complete-rate"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <script src="../../node_modules/echarts/dist/echarts.js"></script> -->
+  <!-- <script src="coursestatistics.js"></script> -->
+</body>
+
+</html>

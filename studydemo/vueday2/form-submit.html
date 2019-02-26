@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+
+    <form action="" method="post" @submit.prevent="preventDefault">
+      <input type="text" placeholder="输入用户名" @keyup.enter="getMsg">
+      <!-- 如果不指定type，那么此处的type默认是submit的，所以会自动提交表单 -->
+      <button type="button">测试表单</button>
+    </form>
+
+  </div>
+  <script src="../../node_modules/vue/dist/vue.js"></script>
+  <script>
+    let vm = new Vue({
+      el: '#app',
+      data: {
+        a: 0,
+        b: []
+      },
+      methods: {
+        preventDefault() {
+          return false;
+        },
+        getMsg() {
+          alert(123)
+        }
+      },
+    })
+  </script>
+</body>
+
+</html>

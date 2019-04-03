@@ -1,0 +1,22 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+  <script>
+    function init() {
+      debugger;
+      var name = 'Mozilla'; //name是一个被init创建的局部变量
+
+      function displayName() { //displayName()内部函数，是一个闭包
+        alert(name); //使用了父函数中声明的name
+      }
+      displayName()
+    }
+    init()
+  </script>
+</body>
+
+</html>

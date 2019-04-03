@@ -1,0 +1,41 @@
+<html>
+
+<head>
+  <title>值为对象的选项</title>
+</head>
+
+<body>
+  <script src="https://unpkg.com/vue@2.2.6/dist/vue.js"></script>
+  <script>
+    /* 值为对象的选项，例如 methods, components 和 directives，将被混合为同一个对象。
+    两个对象键名冲突时，取组件对象的键值对。 */
+    var mixin = {
+      methods: {
+        foo() {
+          console.log('foo')
+        },
+        conflicting() {
+          console.log('from mixin')
+        }
+      },
+    }
+
+    var vm = new Vue({
+      mixins: [mixin],
+      methods: {
+        bar() {
+          console.log('bar')
+        },
+        conflicting() {
+          console.log('from self')
+        }
+      },
+    })
+
+    vm.foo()
+    vm.bar()
+    vm.conflicting()
+  </script>
+</body>
+
+</html>

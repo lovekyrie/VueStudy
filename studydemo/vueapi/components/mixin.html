@@ -1,0 +1,31 @@
+<html>
+
+<head>
+  <title>组件混入对象</title>
+</head>
+
+<body>
+  <script src="https://unpkg.com/vue@2.2.6/dist/vue.js"></script>
+  <script>
+    //定义一个混入对象
+    var myMixin = {
+      created() {
+        this.hello()
+      },
+      methods: {
+        hello() {
+          console.log('hello from mixin!')
+        }
+      },
+    }
+
+    //定义一个使用混入对象的组件
+    var Component = Vue.extend({
+      mixins: [myMixin]
+    })
+
+    var component = new Component()
+  </script>
+</body>
+
+</html>

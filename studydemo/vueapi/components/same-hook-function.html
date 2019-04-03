@@ -1,0 +1,30 @@
+<html>
+
+<head>
+  <title>同名钩子函数</title>
+</head>
+
+<body>
+  <script src="https://unpkg.com/vue@2.2.6/dist/vue.js"></script>
+  <script>
+    /* 同名钩子函数将混合为一个数组，因此都将被调用。
+       另外，混入对象的钩子将在组件自身的钩子函数之前调用 */
+    var mixin = {
+      created() {
+        console.log('混入对象的钩子函数被调用')
+      },
+    }
+
+    new Vue({
+      mixins: [mixin],
+      created() {
+        console.log('组件钩子被调用')
+      }
+    })
+
+    //=>"混入对象的钩子函数被调用"
+    //=>"组件钩子被调用"
+  </script>
+</body>
+
+</html>

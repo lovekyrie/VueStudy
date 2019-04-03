@@ -1,0 +1,43 @@
+<html>
+
+<head>
+  <title>input绑定事件</title>
+</head>
+
+<body>
+  <div id="app">
+    <input type="text" v-focus v-model="msg" @keyup="getMsg">
+    <p>{{pMsg}}</p>
+  </div>
+  <script src="https://unpkg.com/vue@2.2.6/dist/vue.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data() {
+        return {
+          msg: '',
+          pMsg: ''
+        }
+      },
+      directives: {
+        focus: {
+          //指令的意义
+          inserted(el) {
+            el.focus()
+          }
+        }
+      },
+      methods: {
+        getMsg() {
+          // console.log('敲击键盘输入事件')
+          clearTimeout(this.timer)
+          this.timer = setTimeout(() => {
+            this.pMsg = this.msg
+          }, 250)
+        }
+      },
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<html>
+
+<head>
+  <title>闭包应用</title>
+  <style>
+    body {
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: 12px;
+    }
+
+    h1 {
+      font-size: 1.5em;
+    }
+
+    h2 {
+      font-size: 1.2em;
+    }
+  </style>
+</head>
+
+<body>
+  <a href="#" id="size-12">12</a>
+  <a href="#" id="size-14">14</a>
+  <a href="#" id="size-16">16</a>
+  <script>
+    function makeSize(size) {
+      return function () {
+        document.body.style.fontSize = size + 'px'
+      }
+    }
+
+    var size12 = makeSize(12)
+    var size14 = makeSize(14)
+    var size16 = makeSize(16)
+
+    /* 注意这里是onclick，不是onclick() */
+    document.getElementById("size-12").onclick = size12
+    document.getElementById("size-14").onclick = size14
+    document.getElementById("size-16").onclick = size16
+  </script>
+</body>
+
+</html>

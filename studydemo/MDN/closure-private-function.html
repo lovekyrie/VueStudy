@@ -1,0 +1,37 @@
+<html>
+
+<head>
+  <title>闭包模拟私有方法</title>
+</head>
+
+<body>
+  <script>
+    var Counter = (function () {
+      var privateCounter = 0
+
+      function changeBy(val) {
+        privateCounter += val
+      }
+      return {
+        increment() {
+          changeBy(1)
+        },
+        decrement() {
+          changeBy(-1)
+        },
+        value() {
+          return privateCounter
+        }
+      }
+    })()
+
+    console.log(Counter.value())
+    Counter.increment()
+    Counter.increment()
+    console.log(Counter.value())
+    Counter.decrement()
+    console.log(Counter.value())
+  </script>
+</body>
+
+</html>

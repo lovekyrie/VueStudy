@@ -13,6 +13,7 @@ LateBloomer.prototype.declare = function () {
 //在1秒钟后声明bloom
 LateBloomer.prototype.bloom = function () {
   setTimeout(this.declare.bind(this), 1000);
+  // setTimeout(this.declare, 1000)
 }
 
 let flower = new LateBloomer();

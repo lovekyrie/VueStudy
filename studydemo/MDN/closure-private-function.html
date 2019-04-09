@@ -6,6 +6,9 @@
 
 <body>
   <script>
+    /* 该共享环境创建于一个立即执行的函数体内。这个环境中包含两个私有项：
+    名为privateCounter的变量名和名为changBy的函数。这两项都无法在匿名函数
+    外部直接访问。必须通过匿名函数访问的三个公共函数访问。 */
     var Counter = (function () {
       var privateCounter = 0
 

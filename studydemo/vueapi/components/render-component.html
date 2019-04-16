@@ -1,12 +1,15 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-  <title>
-    渲染函数，渲染组件
-  </title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
 </head>
 
 <body>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
   <blog-post>
     <template v-slot:header>
       <h1>About Me</h1>
@@ -18,15 +21,15 @@
       <p>Copyright 2016 Evan You</p>
     </template>
 
-    <p>If I have some content down here, it will also be included in vm.$slots.default.</p>.
+    <p>If I have some content down here, it will also be included in vm.$slots.default.</p>
   </blog-post>
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
   <script>
     /* 在使用渲染函数书写一个组件时，访问 vm.$slots 最有帮助 */
     Vue.component('blog-post', {
       render: function (createElement) {
         var header = this.$slots.header
         var body = this.$slots.default
+        console.log(this.$slots)
         var footer = this.$slots.footer
         return createElement('div', [
           createElement('header', header),

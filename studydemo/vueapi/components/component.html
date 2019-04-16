@@ -20,18 +20,20 @@ except but like el- the special root vue application -->
     <button-counter></button-counter>
   </div>
 
-  <script src="../../node_modules/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vue@2.2.6/dist/vue.js"></script>
   <script>
-    Vue.component('button-counter', {
+    //Extend vue to get a reusable constructor
+    let ButtonCounter = Vue.extend({
       // the data of component must be a function
       data: function () {
         return {
           count: 0
         }
-
       },
       template: '<button v-on:click="count++">You clicked me {{count}} times.</button>'
     })
+    //Register the constructor with id: button-counter
+    Vue.component('button-counter', ButtonCounter)
 
     let vm = new Vue({
       el: '#components-demo'

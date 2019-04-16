@@ -1,0 +1,28 @@
+<html>
+
+<head>
+  <title>
+    全局API Vue.extend
+  </title>
+</head>
+
+<body>
+  <div id="mount-point"></div>
+  <script src="https://unpkg.com/vue@2.2.6/dist/vue.js"></script>
+  <script>
+    var Profile = Vue.extend({
+      template: '<p>{{firstName}} {{lastName}} aka {{alias}}</p>',
+      data() {
+        return {
+          firstName: 'Walter',
+          lastName: 'White',
+          alias: 'Heisenberg'
+        }
+      }
+    })
+    console.log(new Profile())
+    new Profile().$mount('#mount-point')
+  </script>
+</body>
+
+</html>

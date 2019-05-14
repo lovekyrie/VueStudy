@@ -3,12 +3,22 @@
 <head>
   <title>盒子水平垂直居中方式3</title>
   <style>
+    body {
+      position: fixed;
+      z-index: 100;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: calc(100%);
+      background-color: rgba(0, 0, 0, .6);
+    }
+
     #box {
-      margin: auto;
+      margin: 50% auto;
       width: 200px;
       height: 200px;
-      line-height: 2;
-      background-color: #eff;
+      background-color: #fff;
+      transform: translateY(0%);
     }
   </style>
 </head>

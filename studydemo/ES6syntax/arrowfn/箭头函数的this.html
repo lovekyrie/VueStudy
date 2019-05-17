@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let x = 1111
+    let a = {
+      x: 1,
+      init() {
+        document.addEventListener('click', () => console.log(this.x))
+      },
+      allowInit: () => {
+        //allowInit直接是一个箭头函数，所以this指向了window
+        console.log(this.x)
+      },
+      otherInit() {
+        document.addEventListener('click', function () {
+          console.log(this.x)
+        }.bind(this))
+      }
+    }
+
+    a.init()
+    a.allowInit()
+    a.otherInit()
+  </script>
+</body>
+
+</html>

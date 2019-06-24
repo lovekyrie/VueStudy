@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>flex-box如何设置flex-item的高度</title>
+  <style>
+    .flex-box {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: baseline;
+      width: 600px;
+      height: 200px;
+    }
+
+    .flex-item {
+      flex: 1;
+      background-color: cadetblue;
+      border: 1px solid #f00;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="flex-box">
+    <div class="flex-item">
+      one
+    </div>
+    <div class="flex-item">
+      two
+    </div>
+    <div class="flex-item">
+      three
+      <br>has
+      <br>extra
+      <br>text
+    </div>
+  </div>
+</body>
+
+</html>

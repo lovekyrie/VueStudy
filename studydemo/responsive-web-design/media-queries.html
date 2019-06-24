@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>媒体查询</title>
+  <style>
+    *{
+      box-sizing: border-box;
+    }
+
+    .left,
+    .main,
+    .right{
+      float: left;
+      padding: 20px;
+    }
+
+    .left{
+      width: 20%;
+      background-color: #2196F3;
+    }
+
+    .main{
+      width: 60%;
+      background-color: #f1f1f1;
+    }
+
+    .right{
+      width: 20%;
+      background-color: #4CAF50;
+    }
+
+    @media screen and (max-width:800px){
+      .left,
+      .main,
+      .right{
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h2>Media Queries</h2>
+  <p>Resize the browser window.</p>
+
+  <p>Make sure you reach the breakpoint at 800px when resizing this frame.</p>
+
+  <div class="left">
+    <p>Left Menu</p>
+  </div>
+
+  <div class="main">
+    <p>Main Content</p>
+  </div>
+
+  <div class="right">
+    <p>Right Content</p>
+  </div>
+</body>
+</html>

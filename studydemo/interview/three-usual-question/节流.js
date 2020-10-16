@@ -1,0 +1,28 @@
+/**
+ * 节流（ Throttle)
+ * 第一个人说了算
+ */
+function throttle(fn, interval) {
+  //
+  let last = 0
+
+  return function () {
+    let context = this
+    //保留传入的参数
+    let args = arguments
+    //记录本次触发回调的时间
+    let now = +new Date()
+
+    //判断上次触发的时间和本次触发的时间差是否小于时间间隔的阈值
+    if (now - last >= interval) {
+      // 如果时间间隔大于我们设定的时间间隔阈值，则执行回调
+      last = now
+      fn.apply(context, args)
+    }
+  }
+}
+
+// 用throttle来包装scroll的回调
+const better_scroll = throttle(() => console.log('触发了滚动事件'), 1000)
+
+document.addEventListener('scroll', better_scroll)

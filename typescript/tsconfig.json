@@ -39,6 +39,6 @@
   },
   // 入口文件
   "include": [
-    "src/function-type.ts"
+    "src/object-type.ts"
   ]
 }

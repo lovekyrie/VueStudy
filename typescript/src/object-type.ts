@@ -3,7 +3,7 @@ interface Person {
   age: number;
 }
 
-let tom: Person = {
+let tomZero: Person = {
   name: 'Tom',
   age: 25
 }
@@ -13,11 +13,11 @@ interface Person1 {
   age?: number
 }
 
-let tom1: Person1 = {
+let tomOne: Person1 = {
   name: 'Tom1'
 }
 
-let tom2: Person1 = {
+let tomTwo: Person1 = {
   name: 'Tom2',
   age: 26
 }
@@ -29,7 +29,7 @@ interface Person2 {
   [propName: string]: any;
 }
 
-let tom3: Person2 = {
+let tomThree: Person2 = {
   name: 'Tom3',
   gender: 'male'
 }
@@ -42,7 +42,7 @@ interface Person3 {
   //age?: number;
   [propName: string]: string;
 }
-let tom4: Person3 = {
+let tomFour: Person3 = {
   name: 'Tom4',
   //age: 25,
   gender: 'male'

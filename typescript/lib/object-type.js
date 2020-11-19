@@ -1,20 +1,20 @@
 "use strict";
-var tom = {
+var tomZero = {
     name: 'Tom',
     age: 25
 };
-var tom1 = {
+var tomOne = {
     name: 'Tom1'
 };
-var tom2 = {
+var tomTwo = {
     name: 'Tom2',
     age: 26
 };
-var tom3 = {
+var tomThree = {
     name: 'Tom3',
     gender: 'male'
 };
-var tom4 = {
+var tomFour = {
     name: 'Tom4',
     gender: 'male'
 };

@@ -3,6 +3,7 @@
   "configurations": [{
       "type": "chrome",
       "request": "launch",
+      "program": "${file}",
       "name": "Launch Chrome",
       "webRoot": "${workspaceFolder}"
     },

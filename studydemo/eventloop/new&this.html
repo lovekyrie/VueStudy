@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //普通函数
+    function func() {
+      console.log(this)
+    }
+
+    new func();
+    func()
+
+    //箭头函数
+    const arrowFunc = () => {
+      console.log(this)
+    }
+
+    new arrowFunc()
+    arrowFunc()
+  </script>
+</body>
+
+</html>

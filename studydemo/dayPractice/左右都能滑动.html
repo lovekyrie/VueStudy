@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>左右上下都能滑动</title>
+  <style>
+    .outer {
+      width: 300px;
+      height: 200px;
+      overflow: auto;
+      border: 1px solid red;
+    }
+
+    .header,
+    .footer {
+      overflow: hidden;
+      height: 50px;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+    }
+
+    .overflow-inner {
+      overflow: auto;
+      height: 100px;
+    }
+
+    .overflow-inner>div {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      height: 100px;
+    }
+
+    .header>div,
+    .footer>div,
+    .overflow-inner>div>div {
+      min-width: 100px;
+      width: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="outer">
+    <div class="header">
+      <div>1</div>
+      <div>1.1</div>
+      <div>1.2</div>
+      <div>1.3</div>
+      <div>1.4</div>
+    </div>
+    <div class="overflow-inner">
+      <div>
+        <div>2</div>
+        <div>2.2</div>
+        <div>2.3</div>
+        <div>2.4</div>
+        <div>2.5</div>
+      </div>
+      <div>
+        <div>3</div>
+        <div>3.1</div>
+        <div>3.2</div>
+        <div>3.3</div>
+        <div>3.4</div>
+      </div>
+    </div>
+    <div class="footer">
+      <div>4</div>
+      <div>4.1</div>
+      <div>4.2</div>
+      <div>4.3</div>
+      <div>4.4</div>
+    </div>
+  </div>
+</body>
+<script>
+  let last_known_scroll_position = 0;
+  let ticking = false;
+
+  function doSomething(scroll_pos) {
+    // 根据滚动位置做的事
+    document.getElementsByClassName('header')[0].scrollLeft = scroll_pos
+  }
+
+  window.addEventListener('scroll', function (e) {
+    debugger
+    last_known_scroll_position = window.scrollX;
+
+    if (!ticking) {
+      window.requestAnimationFrame(function () {
+        doSomething(last_known_scroll_position);
+        ticking = false;
+      });
+
+      ticking = true;
+    }
+  });
+</script>
+
+</html>

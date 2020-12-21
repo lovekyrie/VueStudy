@@ -29,6 +29,10 @@ DoublyList.prototype.add = function (value) {
   return node
 }
 
+/**
+ * searchNodeAt
+ * @param {*} position 
+ */
 DoublyList.prototype.searchNodeAt = function (position) {
   let currentNode = this.head,
     length = this._length,

@@ -19,6 +19,7 @@
     "koa-bodyparser": "^4.3.0",
     "koa-router": "^10.0.0",
     "layui-src": "^2.3.0",
+    "nunjucks": "^3.2.2",
     "requirejs": "^2.3.5",
     "vue": "^2.5.16",
     "vue-router": "^3.0.1"

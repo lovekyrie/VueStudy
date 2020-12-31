@@ -3,7 +3,7 @@ module.exports = {
     const email = ctx.request.body.email || '',
       password = ctx.request.body.password || '';
 
-    if (email === 'amind@exmaple.com' && password === '12345') {
+    if (email === 'amind@exmaple.com' && password === '123456') {
       console.log('signin ok!')
       ctx.render('signin-ok.html', {
         title: 'Sign In Ok',

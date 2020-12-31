@@ -20,9 +20,13 @@
     "koa-router": "^10.0.0",
     "layui-src": "^2.3.0",
     "mime": "^2.4.7",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.2.5",
     "mz": "^2.7.0",
+    "node-uuid": "^1.4.8",
     "nunjucks": "^3.2.2",
     "requirejs": "^2.3.5",
+    "sequelize": "^6.3.5",
     "vue": "^2.5.16",
     "vue-router": "^3.0.1"
   },

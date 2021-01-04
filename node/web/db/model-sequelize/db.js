@@ -26,7 +26,7 @@ function defineModel(name, attributes) {
   var attrs = {}
   for (let key in attributes) {
     const value = attributes[key]
-    if (value === 'object' && value['type']) {
+    if (typeof value === 'object' && value['type']) {
       value.allowNull = value.allowNull || false
       attrs[key] = value
     } else {
@@ -79,16 +79,45 @@ function defineModel(name, attributes) {
     timestamps: false,
     hooks: {
       beforeValidate: function (obj) {
-        let now = new Date().getTime()
+        let now = Date.now()
         if (obj.isNewRecord) {
           console.log('will create entity...' + obj);
           if (!obj.id) {
             obj.id = generateId()
           }
+          obj.createdAt = now
+          obj.updatedAt = now
+          obj.version = 0
         } else {
-
+          obj.updatedAt = now
+          obj.version++;
         }
       }
     }
   })
 }
+
+const TYPES = ['STRING', 'INTEGER', 'BIGINT', 'TEXT', 'DOUBLE', 'DATEONLY', 'BOOLEAN']
+
+var exp = {
+  defineModel: defineModel,
+  sync: () => {
+    //only allow create ddl in non-production environment
+    if (process.env.NODE_ENV !== 'production') {
+      sequelize.sync({
+        force: true
+      })
+    } else {
+      throw new Error('Cannot sync() when NODE_ENV is set to \'production\'.')
+    }
+  }
+}
+
+for (let type of TYPES) {
+  exp[type] = Sequelize[type]
+}
+
+exp.id = ID_TYPE
+exp.generateId = generateId;
+
+module.exports = exp

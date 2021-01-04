@@ -1,8 +1,8 @@
 var config = {
   diglect: 'mysql',
-  database: 'test',
-  username: 'root',
-  password: 'fengdurant',
+  database: 'nodejs',
+  username: 'www',
+  password: 'www',
   host: 'localhost',
   port: 3306
 }

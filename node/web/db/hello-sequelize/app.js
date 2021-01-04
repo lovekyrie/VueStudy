@@ -29,7 +29,7 @@ var Pet = sequelize.define('pet', {
 
 // add
 // (async () => {
-//   var now = new Date().getTime()
+//   var now = Date.now()
 
 //   var dog = await Pet.create({
 //     id: 'g-' + now,

@@ -11,10 +11,10 @@ const app = new Koa()
 app.use(async (ctx, next) => {
 
   console.log(`Process ${ctx.request.method} ${ctx.request.url}...`)
-  var start = new Date().getTime(),
+  var start = Date.now(),
     execTime;
   await next()
-  execTime = new Date().getTime - start
+  execTime = Date.now() - start
   ctx.response.set('X-Response-Time', `${execTime}ms`)
 })
 

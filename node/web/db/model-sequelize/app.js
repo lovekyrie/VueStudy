@@ -11,16 +11,17 @@ let Pet = model.Pet,
     email: 'john' + Date.now() + '@garfield.pet',
     passwd: 'hahaha'
   })
+  debugger
   console.log('created user: ' + JSON.stringify(user))
   var cat = await Pet.create({
-    ownerId: user.ID,
+    ownerId: user.id,
     name: 'Garfield',
     gender: false,
     birth: '2007-07-07'
   })
   console.log('created cat: ' + JSON.stringify(cat))
   var dog = await Pet.create({
-    ownerId: user.ID,
+    ownerId: user.id,
     name: 'Odie',
     gender: false,
     birth: '2008-08-08'

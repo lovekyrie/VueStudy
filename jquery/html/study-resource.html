@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery 代码调试</title>
+  <script src="../js/jquery-3.5.1.js"></script>
+</head>
+
+<body>
+  <script>
+    var obj1 = Object.create(null);
+    var obj2 = {}
+    var obj3 = new Object({
+      a: 1,
+      b: 2
+    })
+
+    debugger
+    const obj1R = $.isPlainObject(obj1)
+    const obj2R = $.isPlainObject(obj2)
+    const obj3R = $.isPlainObject(obj3)
+  </script>
+</body>
+
+</html>

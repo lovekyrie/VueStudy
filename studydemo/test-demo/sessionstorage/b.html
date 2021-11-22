@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>这是页面2</h1>
+  <!-- 新版本chrome浏览器89后，需要加rel="opener"才能带过去sessionStorage，或者用window.open -->
+  <a href="./c.html" target="_blank" rel="opener">跳转页面3</a>
+  <script>
+    debugger
+    console.log(sessionStorage.getItem('test'))
+    sessionStorage.setItem('test', 'test2')
+  </script>
+</body>
+
+</html>

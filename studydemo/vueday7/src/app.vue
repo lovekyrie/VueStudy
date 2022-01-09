@@ -3,7 +3,9 @@
     {{ msg }}
     <!-- <router-view></router-view> -->
     <button @click="show">notify</button>
-    <router-view></router-view>
+    <router-link to="/home">Home</router-link>
+    <router-link to="/list">List</router-link>
+    <router-view> </router-view>
   </div>
 </template>
 

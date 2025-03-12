@@ -1,0 +1,4 @@
+function addParagraphIntoBody() {
+  const body = document.querySelector('body')
+  body.innerHTML = '<p>牛客网是一个专注于程序员的学习和成长的专业平台。</p>'
+}

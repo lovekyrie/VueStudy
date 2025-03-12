@@ -42,6 +42,13 @@
   <div class="content">
     这是中间区域
   </div>
+  <script>
+    Object.prototype.newMethod = function() {
+      console.log('hello', this)
+    }
+    let a = new Object()
+    a.newMethod()
+    </script>
 </body>
 
 </html>

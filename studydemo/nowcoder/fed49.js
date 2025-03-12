@@ -1,0 +1,3 @@
+function findAllOccurrences(arr, target) {
+
+}

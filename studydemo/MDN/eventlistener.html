@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AddEventListener</title>
+  <style>
+    .parent {
+      background-color: #ff0;
+    }
+    .child {
+      background: #f00;
+    }
+  </style>
+</head>
+<body>
+  <div class="parent">父亲
+    <div class="child">孩子</div>
+  </div> 
+</body>
+<script>
+  const parent = document.querySelector('.parent')
+  const child = document.querySelector('.child')
+
+  parent.addEventListener('click', (event) => {
+    console.log('父亲节点的事件执行了')
+  }, false)
+
+  child.addEventListener('click', (event) => {
+    console.log('孩子节点的️事件也执行力')
+  }, false)
+</script>
+</html>
